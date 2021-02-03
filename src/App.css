@@ -3,10 +3,6 @@
   text-align: center;
   padding: 20px;
 }
-.header {
-  /* position:fixed;
-  top:0; */
-}
 
 .row_pagination {
   display:flex;
@@ -34,7 +30,6 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-
 
 .card {
   text-align: center;

@@ -7,6 +7,7 @@ function CardMovie({movie, moviesFromRedux, updateMoviesRedux}) {
     const [url, setUrl] = useState('')
     
     useEffect(() => {
+        // search image data form The Movie DB API
         const query = movie.title.replaceAll(' ', '+')
         const fechData = async () => { 
             const search = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=71b94f30b0afd7b23c94ff3d409f24bf&query=${query}`)
@@ -14,21 +15,21 @@ function CardMovie({movie, moviesFromRedux, updateMoviesRedux}) {
             setUrl(`https://image.tmdb.org/t/p/original${data.results[0].backdrop_path}`)
         }
         fechData()
-   }, [movie])
+    }, [])
 
     const toggleLike = () => {
+        // toggle like/unlike and send to Redux the new list with modification
         let updatedMovie = movie 
         updatedMovie.like = !movie.like
         let index = moviesFromRedux.indexOf(movie)
         let newList = [...moviesFromRedux]
         newList.splice(index, 1, updatedMovie)
-        console.log(newList)
         updateMoviesRedux(newList)
     }
 
     const deleteMovie = () => {
+        // delete movie to the Redux list
         let newList = moviesFromRedux.filter(item => item.id !== movie.id)
-        console.log(newList)
         updateMoviesRedux(newList)
     }
     
