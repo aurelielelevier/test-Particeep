@@ -1,5 +1,4 @@
 import './App.css';
-import { useState, useEffect } from 'react';
 
 import {createStore, combineReducers} from 'redux';
 import {Provider} from 'react-redux';
