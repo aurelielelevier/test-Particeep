@@ -11,7 +11,7 @@ import {faAngleDoubleLeft, faAngleDoubleRight } from "@fortawesome/free-solid-sv
 
 function Movies({setMoviesToRedux, moviesFromRedux}) {
     const [categories, setCategories] = useState([]);
-    const [categorySelected, setCategorySelected] = useState(null);
+    const [categorySelected, setCategorySelected] = useState('All');
     const [allMoviesToDisplay, setAllMoviesToDisplay] = useState([]);
     const [moviesToDisplay, setMoviesToDisplay] = useState([]);
     const [numberOfPages, setNumberOfPages] = useState(0);
@@ -45,8 +45,7 @@ function Movies({setMoviesToRedux, moviesFromRedux}) {
         let indexEnd = numberOnPage * active
         let result = toDisplay.slice(indexStart, indexEnd)
         setMoviesToDisplay(result)
-        // 
-        //setNumberOfPages(allMoviesToDisplay.length%numberOnPage === 0 ? allMoviesToDisplay.length/numberOnPage : allMoviesToDisplay.length/numberOnPage + 1)
+        setNumberOfPages(allMoviesToDisplay.length%numberOnPage === 0 ? allMoviesToDisplay.length/numberOnPage : allMoviesToDisplay.length/numberOnPage + 1)
     }, [allMoviesToDisplay, numberOnPage, active])
     
     useEffect(() => {

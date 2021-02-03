@@ -2,6 +2,7 @@
   background-color: #181818;
   text-align: center;
   padding: 20px;
+  min-height: 100vh;
 }
 
 .row_pagination {
